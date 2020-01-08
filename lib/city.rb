@@ -47,6 +47,7 @@ class City
 
   end
 
+  # find a city by id
   def self.find(id)
     city = DB.exec("SELECT * FROM cities WHERE id = #{id};").first
     name = city.fetch("name")

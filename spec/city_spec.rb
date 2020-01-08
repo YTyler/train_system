@@ -29,10 +29,10 @@ describe('.#City') do
 
   describe('.clear') do
     it("clears all cities") do
-      album = City.new({:name => "Chicago", :id => nil})
-      album.save()
-      album2 = City.new({:name => "Portland", :id => nil})
-      album2.save()
+      city = City.new({:name => "Chicago", :id => nil})
+      city.save()
+      city2 = City.new({:name => "Portland", :id => nil})
+      city2.save()
       City.clear()
       expect(City.all).to(eq([]))
     end
@@ -49,12 +49,12 @@ describe('.#City') do
 
   describe('#delete') do
     it("deletes an city") do
-      album = City.new({:name => "Chicago", :id => nil})
-      album.save()
-      album2 = City.new({:name => "Portland", :id => nil})
-      album2.save()
-      album.delete()
-      expect(City.all).to(eq([album2]))
+      city = City.new({:name => "Chicago", :id => nil})
+      city.save()
+      city2 = City.new({:name => "Portland", :id => nil})
+      city2.save()
+      city.delete()
+      expect(City.all).to(eq([city2]))
     end
   end
 
