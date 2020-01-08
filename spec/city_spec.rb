@@ -1,6 +1,4 @@
-require('city')
-require('rspec')
-require('pry')
+require('spec_helper')
 
 describe('.#City') do
 
@@ -11,6 +9,22 @@ describe('.#City') do
       expect(city1).to(eq(city2))
     end
   end
+
+  describe(".all") do
+    it("returns an empty array when there are no cities") do
+      expect(City.all()).to(eq([]))
+    end
+  end
+
+  describe('#save') do
+  it("saves an city") do
+    city = City.new({:name => "Chicago", :id => nil}) # nil added as second argument
+    city.save()
+    city2 = City.new({:name => "Portland", :id => nil}) # nil added as second argument
+    city2.save()
+    expect(City.all).to(eq([city, city2]))
+  end
+end
 
 
 end
