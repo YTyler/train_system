@@ -1,0 +1,28 @@
+<h1>Add a train stop</h1>
+
+<form action="/home/employee/add" method=post>
+  <select name="train">
+    <%if @trains.any? %>
+    <% @trains.each do |train| %>
+    <option value=<%= train.id %>> <%= train.name %> </option>
+    <% end %>
+    <% else %>
+    <p>Add a Train First</p>
+    <% end %>
+  </select>
+
+  <select name="city">
+    <%if @cities.any? %>
+    <% @cities.each do |city| %>
+    <option value=<%= city.id %>> <%= city.name %> </option>
+    <% end %>
+    <% else %>
+    <p>Add a City First</p>
+    <% end %>
+  </select>
+
+  <input type=integer name="time">
+
+  <br><br>
+  <input type="submit">
+</form>

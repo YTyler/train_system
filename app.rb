@@ -29,6 +29,7 @@ end
 
 get('/home/employee/trains/:id') do
   @train = Train.find(params[:id].to_i)
+  @stops = @train.get_stops
   erb(:train)
 end
 
@@ -51,7 +52,6 @@ post('/home/employee/trains') do
   redirect to('/home/employee')
 end
 
-
 # City Requests
 get('/home/employee/cities/new') do
   erb(:new_city)
@@ -59,6 +59,7 @@ end
 
 get('/home/employee/cities/:id') do
   @city = City.find(params[:id].to_i)
+  @stops = @city.get_stops
   erb(:city)
 end
 
@@ -81,10 +82,23 @@ patch('/home/employee/cities/:id') do
   erb(:city)
 end
 
+get('/home/employee/add') do
+  @trains = Train.all
+  @cities = City.all
+  erb(:add_stop)
+end
 
+post('/home/employee/add') do
+  train_id = params[:train]
+  city_id = params[:city]
+  time = params[:time]
+  DB.exec("INSERT INTO stops (train_id, city_id, time) VALUES (#{train_id}, #{city_id}, #{time});")
+  redirect to ('/home/employee')
+end
 
 get('/destroy') do
   Train.clear
   City.clear
+  DB.exec("DELETE FROM stops *")
   redirect to('/home/employee')
 end

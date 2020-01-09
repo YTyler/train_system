@@ -1,6 +1,15 @@
 <h1><%= @train.name %></h1>
 
-<!-- LIST CITIES HERE -->
+<% if @stops.any? %>
+<p>City -----------Time</p>
+<ul>
+  <% @stops.each do |stop| %>
+  <li> <%=City.find(stop[:city_id]).name %>---------------<%= stop[:time] %></li>
+  <% end %>
+</ul>
+<% else %>
+<p>There are currently no stops to display.</p>
+<% end %>
 
 <p><a href="/home/employee/trains/<%= @train.id %>/edit">Edit Train</a></p>
 <a href="/home/employee">Return to employee home</a>
