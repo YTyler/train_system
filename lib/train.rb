@@ -58,10 +58,11 @@ class Train
     returned_stops = DB.exec("SELECT * FROM stops WHERE train_id = #{@id}")
     stops = []
     returned_stops.each do |stop|
+      id = stop.fetch('id')
       train_id = stop.fetch('train_id')
       city_id = stop.fetch('city_id')
       time = stop.fetch('time')
-      stops.push({:train_id => train_id, :city_id => city_id, :time => time})
+      stops.push({:train_id => train_id, :city_id => city_id, :time => time, :id => id})
     end
     stops
   end

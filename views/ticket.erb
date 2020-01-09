@@ -1,0 +1,7 @@
+<h1>Your Ticket Receipt</h1>
+
+<h2>City: <%= City.find(@stop.fetch('city_id')).name %></h2>
+
+<h2>Train: <%= Train.find(@stop.fetch('train_id')).name %></h2>
+
+<h3>Time: <%= @stop.fetch('time') %></h3>

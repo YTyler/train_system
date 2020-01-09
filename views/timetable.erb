@@ -1,0 +1,20 @@
+
+<% if @trains.any? %>
+
+<% @trains.each do |train| %>
+<h1><%= train.name %></h1>
+<% stops = train.get_stops %>
+<% if stops.any? %>
+<p>City -----------Time</p>
+<ul>
+  <% stops.each do |stop| %>
+  <li> <%=City.find(stop[:city_id]).name %>---------------<%= stop[:time] %><a href="/home/ticket/<%= stop[:id] %>"> Buy Ticket</a></li>
+  <% end %>
+</ul>
+<% end %>
+
+<% end %>
+
+<% end %>
+
+<a href="/home">Return to Home</a>

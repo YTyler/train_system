@@ -1,0 +1,25 @@
+<h1>Train Schedules</h1>
+<br>
+<h2>All Trains</h2>
+<% if @trains.any? %>
+<ul>
+  <% @trains.each do |train| %>
+    <li><a href="/home/rider/trains/<%= train.id %>"><%= train.name %></a></li>
+  <% end %>
+</ul>
+<% else %>
+<p>There are currently no trains to display.</p>
+<% end %>
+
+<h2>All Cities</h2>
+<% if @cities.any? %>
+<ul>
+  <% @cities.each do |city| %>
+    <li><a href="/home/rider/cities/<%= city.id %>"><%= city.name %></a></li>
+  <% end %>
+</ul>
+<% else %>
+<p>There are currently no records to display.</p>
+<% end %>
+
+<a href="/home">Return to Home</a>
