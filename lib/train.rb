@@ -3,7 +3,7 @@ class Train
 
   # create a train
   def initialize(attributes)
-    @name = attributes.fetch(:name) || nil
+    @name = attributes.fetch(:name)
     @id = attributes.fetch(:id, nil)
   end
 
@@ -44,7 +44,6 @@ class Train
   #clear train database
   def self.clear
     DB.exec("DELETE FROM trains *;")
-
   end
 
   # find a train by id

@@ -4,24 +4,31 @@
 <% if @trains.any? %>
 <ul>
   <% @trains.each do |train| %>
-    <li><a href="./employee/trains/<%= train.id %>"><%= train.name %></a></li>
+    <li><a href="/home/employee/trains/<%= train.id %>"><%= train.name %></a></li>
   <% end %>
 </ul>
 <% else %>
 <p>There are currently no trains to display.</p>
 <% end %>
 
-<a href="./employee/trains/new">Add a new train</a>
+<a href="/home/employee/trains/new">Add a new train</a>
 
 <h2>All Cities</h2>
 <% if @cities.any? %>
 <ul>
   <% @cities.each do |city| %>
-    <li><a href="./employee/cities/<%= city.id %>"><%= city.name %></a></li>
+    <li><a href="/home/employee/cities/<%= city.id %>"><%= city.name %></a></li>
   <% end %>
 </ul>
 <% else %>
 <p>There are currently no records to display.</p>
 <% end %>
 
-<a href="./employee/cities/new">Add a new city</a>
+<a href="/home/employee/cities/new">Add a new city</a>
+<br>
+<br>
+<a href="/home/employee/add">Add Stops</a>
+<p>Go to view with dropdowns for cities and trains and a Timestamp input</p>
+<br>
+<br>
+<a href="/destroy">DESTROY EVERYTHING</a>
